@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Roboto'),
       home: HomePage(),
     )
   );
@@ -27,8 +28,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))
@@ -41,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Inspiration', style: TextStyle(color: Colors.black, fontSize: 40),),
+                  Text('Inspiration', style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),),
                   SizedBox(
                     height: 20,
                   ),
@@ -136,7 +139,6 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         margin: EdgeInsets.only(right: 15.0),
         decoration: BoxDecoration(
-          color: Colors.orange,
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
             fit: BoxFit.cover,
