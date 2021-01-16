@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   Text('Inspiration', style: TextStyle(color: Colors.black, fontSize: 40),),
                   SizedBox(
                     height: 20,
-                  )
+                  ),
                   Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
@@ -81,14 +81,81 @@ class _HomePageState extends State<HomePage> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
+                        promoCard('assets/images/one.jpg'),
+                        promoCard('assets/images/two.jpg'),
+                        promoCard('assets/images/three.jpg'),
+                        promoCard('assets/images/four.jpg'),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/three.jpg')
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomRight,
+                          stops: [0.3, 0.9],
+                          colors: [
+                            Colors.black.withOpacity(.8),
+                            Colors.black.withOpacity(.2)
+                          ]
+                        )
+                      ),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text('Best Design', style: TextStyle(color: Colors.white, fontSize: 20),),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )
           ],
         )
+      ),
+    );
+  }
+
+  Widget promoCard(image) {
+    return AspectRatio(
+      aspectRatio: 2.62 / 3,
+      child: Container(
+        margin: EdgeInsets.only(right: 15.0),
+        decoration: BoxDecoration(
+          color: Colors.orange,
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(image)
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              stops: [0.1, 0.9],
+              colors: [
+                Colors.black.withOpacity(.8),
+                Colors.black.withOpacity(.1)
+              ]
+            )
+          ),
+        ),
       ),
     );
   }
